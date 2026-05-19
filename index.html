@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideExplorer | Premium Moto Trip Experiences</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">RideExplorer</a>
+            <ul class="nav-links">
+                <li><a href="#trips">Trips</a></li>
+                <li><a href="#motorcycles">Motorcycles</a></li>
+                <li><a href="#booking">Book</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content container">
+                <h1 class="fade-in">RideExplorer</h1>
+                <p class="fade-in delay-1">Choose your trip. Choose your ride. Explore Morocco like never before.</p>
+                <a href="#trips" class="btn btn-primary fade-in delay-2">Explore Trips</a>
+            </div>
+        </section>
+
+        <section id="trips" class="section trips">
+            <div class="container">
+                <h2 class="section-title">Select Your Adventure</h2>
+                <div class="grid grid-trips" id="trips-container">
+                    <!-- Dynamic Trip Cards -->
+                </div>
+            </div>
+        </section>
+
+        <section id="motorcycles" class="section motorcycles">
+            <div class="container">
+                <h2 class="section-title">Select Your Ride</h2>
+                <div class="grid grid-bikes" id="bikes-container">
+                    <!-- Dynamic Bike Cards -->
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="section booking">
+            <div class="container">
+                <div class="booking-card glass">
+                    <h2 class="section-title">Your Booking</h2>
+                    <div id="booking-summary" class="booking-summary">
+                        <p class="placeholder-text">Please select a trip and a motorcycle to see your summary.</p>
+                    </div>
+                    <div class="booking-form">
+                        <div class="form-group">
+                            <label for="booking-date">Adventure Date</label>
+                            <input type="date" id="booking-date" class="form-input">
+                        </div>
+                        <button id="confirm-booking" class="btn btn-primary btn-large" disabled>Confirm Adventure</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 RideExplorer. High-End Moto Experiences.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
