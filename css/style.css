@@ -1,13 +1,16 @@
 :root {
     --primary: #FF5A00;
     --primary-hover: #E65100;
+    --bg-black: #050505;
     --bg-dark: #0F0F0F;
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --text-light: #F5F5F7;
-    --text-muted: #A1A1A6;
-    --glass: rgba(255, 255, 255, 0.08);
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --text-white: #FFFFFF;
+    --text-muted: #888888;
+    --glass: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --glass-accent: rgba(255, 90, 0, 0.15);
+    --transition-slow: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
 }
 
 * {
@@ -21,38 +24,47 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 .section {
-    padding: 8rem 0;
+    padding: 10rem 0;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     text-align: center;
+    letter-spacing: -1px;
 }
 
-/* Header & Nav */
+/* Glassmorphism Utility */
+.glass {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+}
+
+/* Header */
 .header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(15, 15, 15, 0.8);
-    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
 }
 
@@ -60,28 +72,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 90px;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--text-white);
     text-decoration: none;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: 500;
-    transition: var(--transition);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-fast);
 }
 
 .nav-links a:hover {
@@ -91,39 +106,58 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    background: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=90&w=2070') no-repeat center center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, var(--bg-black) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
-    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-size: clamp(4rem, 12vw, 8rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    letter-spacing: -2px;
+    letter-spacing: -4px;
+    line-height: 0.9;
 }
 
 .hero p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--text-muted);
-    margin-bottom: 2.5rem;
-    max-width: 600px;
+    margin-bottom: 3rem;
+    max-width: 700px;
     margin-inline: auto;
+    font-weight: 300;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
+    padding: 1.2rem 3rem;
+    border-radius: 100px;
     font-weight: 600;
     text-decoration: none;
-    transition: var(--transition);
+    transition: var(--transition-slow);
     cursor: pointer;
     border: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-primary {
@@ -133,145 +167,215 @@ body {
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 90, 0, 0.3);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 90, 0, 0.3);
 }
 
 .btn-large {
     width: 100%;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    padding: 1.5rem;
 }
 
 .btn:disabled {
-    background-color: #333;
+    background-color: #222;
+    color: #555;
     cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* Grids */
 .grid {
     display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 }
 
-/* Cards */
+/* Adventure Cards */
 .card {
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: var(--transition);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: var(--transition-slow);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-15px);
+    border-color: rgba(255, 90, 0, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
 
 .card.selected {
     border: 2px solid var(--primary);
-    background: rgba(255, 90, 0, 0.1);
+    background: var(--glass-accent);
 }
 
-.card-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
+.card-tag {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 .card-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
-.card-info {
-    color: var(--text-muted);
+.card-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
     font-size: 0.9rem;
-    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-stops {
+    list-style: none;
+    margin-bottom: 2rem;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1.5rem;
+}
+
+.card-stops li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.card-stops li::before {
+    content: "•";
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card-price {
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 700;
+    color: var(--text-white);
+}
+
+/* Motorcycle Cards */
+.bike-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    transition: var(--transition-slow);
+}
+
+.card:hover .bike-image {
+    transform: scale(1.05);
+}
+
+.bike-power {
     color: var(--primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
 }
 
-/* Booking Section */
-.glass {
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    padding: 3rem;
+.bike-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
 }
 
+/* Booking Summary */
 .booking-card {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    padding: 4rem;
+    border-radius: 40px;
 }
 
 .booking-summary {
-    background: rgba(0,0,0,0.2);
-    border-radius: 15px;
+    margin: 3rem 0;
     padding: 2rem;
-    margin-bottom: 2rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
 }
 
-.summary-item {
+.summary-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.summary-item:last-child {
+.summary-row:last-child {
     border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
-.summary-total {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin-top: 1rem;
-    text-align: right;
-}
-
-.form-group {
-    margin-bottom: 2rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
+.summary-label {
     color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
 
-.form-input {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--glass-border);
-    border-radius: 10px;
-    color: white;
-    font-family: inherit;
+.summary-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.total-row {
+    margin-top: 1rem;
+    padding-top: 2rem;
+}
+
+.total-value {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.terms {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
 }
 
 /* Animations */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.8s forwards;
+    transform: translateY(30px);
+    animation: fadeIn 1.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .delay-1 { animation-delay: 0.2s; }
@@ -286,21 +390,27 @@ body {
 
 /* Footer */
 .footer {
-    padding: 4rem 0;
-    text-align: center;
+    padding: 6rem 0;
     border-top: 1px solid var(--glass-border);
     color: var(--text-muted);
+    text-align: center;
+}
+
+.footer-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    .hero h1 {
-        font-size: 3rem;
-    }
-    .section {
-        padding: 4rem 0;
-    }
+    .section-title { font-size: 2.2rem; }
+    .hero h1 { font-size: 3.5rem; }
+    .grid { grid-template-columns: 1fr; }
+    .booking-card { padding: 2rem; }
+    .nav-links { display: none; }
 }

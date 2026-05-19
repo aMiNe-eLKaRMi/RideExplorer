@@ -1,167 +1,224 @@
-// Data
-const trips = [
+/**
+ * RideExplorer - Premium Guided Adventure Logic
+ */
+
+// --- DATA ---
+const ADVENTURES = [
     {
-        id: 'trip-1',
+        id: 'adv-1',
         title: 'Marrakech → Atlas Adventure',
-        duration: '6h',
+        duration: '6 Hours',
         difficulty: 'Medium',
+        groupSize: '8 Riders',
+        date: '12 September 2026',
         price: 120,
-        image: 'https://images.unsplash.com/photo-1539121405283-2bb73027132a?auto=format&fit=crop&q=80&w=800'
+        stops: ['Atlas Mountain View', 'Traditional Berber Café', 'Sunset Panorama'],
+        tag: 'Popular'
     },
     {
-        id: 'trip-2',
-        title: 'Marrakech → Desert Dunes Ride',
+        id: 'adv-2',
+        title: 'Marrakech → Desert Escape',
         duration: '1 Day',
         difficulty: 'Easy',
+        groupSize: '12 Riders',
+        date: '25 September 2026',
         price: 180,
-        image: 'https://images.unsplash.com/photo-1547134306-0569733075d9?auto=format&fit=crop&q=80&w=800'
+        stops: ['Agafay Desert', 'Desert Camp', 'Camel Break Point'],
+        tag: 'Recommended'
     },
     {
-        id: 'trip-3',
-        title: 'Atlas Mountains Extreme Ride',
+        id: 'adv-3',
+        title: 'Atlas Extreme Expedition',
         duration: '2 Days',
         difficulty: 'Hard',
+        groupSize: '6 Riders',
+        date: '8 October 2026',
         price: 350,
-        image: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=800'
+        stops: ['Rocky Mountain Trails', 'Hidden Villages', 'High Atlas Peaks'],
+        tag: 'Elite'
     }
 ];
 
-const motorcycles = [
+const MOTORCYCLES = [
     {
-        id: 'bike-1',
-        model: 'CF Moto 450',
-        power: '46 HP',
-        description: 'Compact and agile, perfect for mountain passes.',
-        price: 0, // Included in base trip or small fee
-        image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=800'
+        id: 'moto-1',
+        name: 'CF Moto 450 MT',
+        power: '44 HP',
+        desc: 'Lightweight and nimble, perfect for technical Atlas trails.',
+        image: 'https://images.unsplash.com/photo-1539121405283-2bb73027132a?auto=format&fit=crop&q=80&w=800'
     },
     {
-        id: 'bike-2',
-        model: 'Honda Africa Twin',
+        id: 'moto-2',
+        name: 'Honda Africa Twin',
         power: '101 HP',
-        description: 'The legendary off-road master for any terrain.',
-        price: 50,
-        image: 'https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?auto=format&fit=crop&q=80&w=800'
+        desc: 'The ultimate adventure icon. Power meets legendary reliability.',
+        image: 'https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800'
     },
     {
-        id: 'bike-3',
-        model: 'Yamaha Tenere 700',
+        id: 'moto-3',
+        name: 'Yamaha Tenere 700',
         power: '73 HP',
-        description: 'Pure adventure spirit with a rally-bred engine.',
-        price: 40,
+        desc: 'Rally-bred performance for those who seek the pure desert experience.',
         image: 'https://images.unsplash.com/photo-1614165933024-4903366bc907?auto=format&fit=crop&q=80&w=800'
     },
     {
-        id: 'bike-4',
-        model: 'BMW GS 1250',
+        id: 'moto-4',
+        name: 'BMW R1250 GS Adventure',
         power: '136 HP',
-        description: 'The king of adventure touring. Luxury meets power.',
-        price: 80,
+        desc: 'Unmatched comfort and technology for long-distance mountain crossing.',
         image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&q=80&w=800'
     }
 ];
 
-// State
-let selectedTrip = null;
-let selectedBike = null;
+// --- STATE ---
+let selectedAdventure = null;
+let selectedMotorcycle = null;
 
-// DOM Elements
-const tripsContainer = document.getElementById('trips-container');
+// --- DOM ELEMENTS ---
+const advContainer = document.getElementById('adventures-container');
 const bikesContainer = document.getElementById('bikes-container');
-const bookingSummary = document.getElementById('booking-summary');
+const summaryContainer = document.getElementById('booking-summary');
 const confirmBtn = document.getElementById('confirm-booking');
 
-// Initialize
-function init() {
-    renderTrips();
-    renderBikes();
-    updateSummary();
-}
+// --- FUNCTIONS ---
 
-function renderTrips() {
-    tripsContainer.innerHTML = trips.map(trip => `
-        <div class="card trip-card" data-id="${trip.id}">
-            <img src="${trip.image}" alt="${trip.title}" class="card-image">
-            <h3 class="card-title">${trip.title}</h3>
-            <div class="card-info">
-                <span>⏱ ${trip.duration}</span> | 
-                <span>🏔 ${trip.difficulty}</span>
+/**
+ * Render Adventure Cards
+ */
+function renderAdventures() {
+    advContainer.innerHTML = ADVENTURES.map(adv => `
+        <div class="card adventure-card" data-id="${adv.id}">
+            <span class="card-tag">${adv.tag}</span>
+            <h3 class="card-title">${adv.title}</h3>
+            <div class="card-meta">
+                <div class="meta-item">⏱ ${adv.duration}</div>
+                <div class="meta-item">🏔 ${adv.difficulty}</div>
+                <div class="meta-item">👥 ${adv.groupSize}</div>
+                <div class="meta-item">📅 ${adv.date}</div>
             </div>
-            <div class="card-price">${trip.price}€</div>
+            <ul class="card-stops">
+                ${adv.stops.map(stop => `<li>${stop}</li>`).join('')}
+            </ul>
+            <div class="card-footer">
+                <div class="card-price">${adv.price}€</div>
+                <button class="btn btn-primary btn-select">Join</button>
+            </div>
         </div>
     `).join('');
 
-    document.querySelectorAll('.trip-card').forEach(card => {
-        card.addEventListener('click', () => selectTrip(card.dataset.id));
+    // Add click events
+    document.querySelectorAll('.adventure-card').forEach(card => {
+        card.addEventListener('click', () => {
+            selectedAdventure = ADVENTURES.find(a => a.id === card.dataset.id);
+            updateSelectionUI('.adventure-card', card);
+            updateSummary();
+        });
     });
 }
 
-function renderBikes() {
-    bikesContainer.innerHTML = motorcycles.map(bike => `
+/**
+ * Render Motorcycle Cards
+ */
+function renderMotorcycles() {
+    bikesContainer.innerHTML = MOTORCYCLES.map(bike => `
         <div class="card bike-card" data-id="${bike.id}">
-            <img src="${bike.image}" alt="${bike.model}" class="card-image">
-            <h3 class="card-title">${bike.model}</h3>
-            <div class="card-info">
-                <strong>Power:</strong> ${bike.power}<br>
-                ${bike.description}
+            <img src="${bike.image}" alt="${bike.name}" class="bike-image">
+            <div class="bike-power">${bike.power}</div>
+            <h3 class="card-title">${bike.name}</h3>
+            <p class="bike-desc">${bike.desc}</p>
+            <div class="card-footer">
+                <button class="btn btn-primary btn-select" style="width: 100%">Choose this Motorcycle</button>
             </div>
-            <div class="card-price">${bike.price > 0 ? `+${bike.price}€` : 'Included'}</div>
-            <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Choose this bike</button>
         </div>
     `).join('');
 
+    // Add click events
     document.querySelectorAll('.bike-card').forEach(card => {
-        card.addEventListener('click', () => selectBike(card.dataset.id));
+        card.addEventListener('click', () => {
+            selectedMotorcycle = MOTORCYCLES.find(m => m.id === card.dataset.id);
+            updateSelectionUI('.bike-card', card);
+            updateSummary();
+        });
     });
 }
 
-function selectTrip(id) {
-    selectedTrip = trips.find(t => t.id === id);
-    document.querySelectorAll('.trip-card').forEach(card => {
-        card.classList.toggle('selected', card.dataset.id === id);
-    });
-    updateSummary();
+/**
+ * Toggle visual selection in UI
+ */
+function updateSelectionUI(selector, selectedCard) {
+    document.querySelectorAll(selector).forEach(c => c.classList.remove('selected'));
+    selectedCard.classList.add('selected');
 }
 
-function selectBike(id) {
-    selectedBike = motorcycles.find(b => b.id === id);
-    document.querySelectorAll('.bike-card').forEach(card => {
-        card.classList.toggle('selected', card.dataset.id === id);
-    });
-    updateSummary();
-}
-
+/**
+ * Update Booking Summary
+ */
 function updateSummary() {
-    if (!selectedTrip && !selectedBike) {
-        bookingSummary.innerHTML = '<p class="placeholder-text">Please select a trip and a motorcycle to see your summary.</p>';
+    if (!selectedAdventure || !selectedMotorcycle) {
+        summaryContainer.innerHTML = `
+            <p class="placeholder-text">Select an adventure and a motorcycle to secure your spot in the group.</p>
+        `;
         confirmBtn.disabled = true;
         return;
     }
 
-    const totalPrice = (selectedTrip ? selectedTrip.price : 0) + (selectedBike ? selectedBike.price : 0);
-
-    bookingSummary.innerHTML = `
-        <div class="summary-item">
-            <span>Selected Trip</span>
-            <span>${selectedTrip ? selectedTrip.title : 'Not selected'}</span>
+    summaryContainer.innerHTML = `
+        <div class="summary-row">
+            <span class="summary-label">Adventure</span>
+            <span class="summary-value">${selectedAdventure.title}</span>
         </div>
-        <div class="summary-item">
-            <span>Selected Motorcycle</span>
-            <span>${selectedBike ? selectedBike.model : 'Not selected'}</span>
+        <div class="summary-row">
+            <span class="summary-label">Departure Date</span>
+            <span class="summary-value">${selectedAdventure.date}</span>
         </div>
-        ${selectedTrip && selectedBike ? `
-            <div class="summary-total">
-                Total: ${totalPrice}€
-            </div>
-        ` : ''}
+        <div class="summary-row">
+            <span class="summary-label">Motorcycle</span>
+            <span class="summary-value">${selectedMotorcycle.name}</span>
+        </div>
+        <div class="summary-row">
+            <span class="summary-label">Group Details</span>
+            <span class="summary-value">${selectedAdventure.groupSize} | ${selectedAdventure.duration}</span>
+        </div>
+        <div class="summary-row total-row">
+            <span class="summary-label">Total Experience Price</span>
+            <span class="total-value">${selectedAdventure.price}€</span>
+        </div>
     `;
 
-    confirmBtn.disabled = !(selectedTrip && selectedBike);
+    confirmBtn.disabled = false;
 }
 
+/**
+ * Booking Confirmation
+ */
 confirmBtn.addEventListener('click', () => {
-    alert(`Adventure Confirmed!\n\nTrip: ${selectedTrip.title}\nBike: ${selectedBike.model}\nTotal: ${selectedTrip.price + selectedBike.price}€\n\nSee you in Morocco!`);
+    confirmBtn.innerHTML = "Booking Confirmed...";
+    confirmBtn.style.backgroundColor = "#4CAF50";
+    
+    setTimeout(() => {
+        alert(`Success! Your spot for the "${selectedAdventure.title}" on ${selectedAdventure.date} has been reserved.\n\nYou will ride the ${selectedMotorcycle.name}.\n\nSee you in Morocco!`);
+        confirmBtn.innerHTML = "Reserve My Spot";
+        confirmBtn.style.backgroundColor = "var(--primary)";
+    }, 1000);
 });
 
-// Run Init
-init();
+// --- INITIALIZE ---
+function init() {
+    renderAdventures();
+    renderMotorcycles();
+    
+    // Smooth reveal on scroll (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', init);

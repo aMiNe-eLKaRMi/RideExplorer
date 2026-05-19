@@ -3,64 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RideExplorer | Premium Moto Trip Experiences</title>
+    <title>RideExplorer | Premium Guided Moto Adventures</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation -->
     <header class="header">
         <nav class="nav container">
             <a href="#" class="logo">RideExplorer</a>
             <ul class="nav-links">
-                <li><a href="#trips">Trips</a></li>
-                <li><a href="#motorcycles">Motorcycles</a></li>
-                <li><a href="#booking">Book</a></li>
+                <li><a href="#adventures">Adventures</a></li>
+                <li><a href="#motorcycles">The Fleet</a></li>
+                <li><a href="#booking">My Spot</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero">
+            <div class="hero-overlay"></div>
             <div class="hero-content container">
                 <h1 class="fade-in">RideExplorer</h1>
-                <p class="fade-in delay-1">Choose your trip. Choose your ride. Explore Morocco like never before.</p>
-                <a href="#trips" class="btn btn-primary fade-in delay-2">Explore Trips</a>
-            </div>
-        </section>
-
-        <section id="trips" class="section trips">
-            <div class="container">
-                <h2 class="section-title">Select Your Adventure</h2>
-                <div class="grid grid-trips" id="trips-container">
-                    <!-- Dynamic Trip Cards -->
+                <p class="fade-in delay-1">Join unforgettable guided motorcycle adventures across Morocco.</p>
+                <div class="fade-in delay-2">
+                    <a href="#adventures" class="btn btn-primary">Explore Adventures</a>
                 </div>
             </div>
         </section>
 
-        <section id="motorcycles" class="section motorcycles">
+        <!-- Adventures Section -->
+        <section id="adventures" class="section">
             <div class="container">
-                <h2 class="section-title">Select Your Ride</h2>
+                <h2 class="section-title fade-in">Select Your Adventure</h2>
+                <div class="grid grid-adventures" id="adventures-container">
+                    <!-- Dynamic Adventure Cards will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Motorcycles Section -->
+        <section id="motorcycles" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Select Your Motorcycle</h2>
                 <div class="grid grid-bikes" id="bikes-container">
-                    <!-- Dynamic Bike Cards -->
+                    <!-- Dynamic Bike Cards will be injected here -->
                 </div>
             </div>
         </section>
 
+        <!-- Booking Summary Section -->
         <section id="booking" class="section booking">
             <div class="container">
-                <div class="booking-card glass">
-                    <h2 class="section-title">Your Booking</h2>
+                <div class="booking-card glass fade-in">
+                    <h2 class="section-title">Adventure Summary</h2>
                     <div id="booking-summary" class="booking-summary">
-                        <p class="placeholder-text">Please select a trip and a motorcycle to see your summary.</p>
+                        <p class="placeholder-text">Select an adventure and a motorcycle to secure your spot in the group.</p>
                     </div>
-                    <div class="booking-form">
-                        <div class="form-group">
-                            <label for="booking-date">Adventure Date</label>
-                            <input type="date" id="booking-date" class="form-input">
-                        </div>
-                        <button id="confirm-booking" class="btn btn-primary btn-large" disabled>Confirm Adventure</button>
+                    <div class="booking-action">
+                        <button id="confirm-booking" class="btn btn-primary btn-large" disabled>Reserve My Spot</button>
+                        <p class="terms">By clicking, you agree to join a guided group experience.</p>
                     </div>
                 </div>
             </div>
@@ -69,7 +74,11 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 RideExplorer. High-End Moto Experiences.</p>
+            <p>&copy; 2026 RideExplorer. Premium Guided Experiences.</p>
+            <div class="footer-links">
+                <span>Investor Demo</span>
+                <span>Terms of Adventure</span>
+            </div>
         </div>
     </footer>
 
