@@ -1,5 +1,5 @@
 /**
- * RideExplorer - Premium Guided Adventure Logic (Midnight Gold Edition)
+ * RideExplorer - Cinematic Luxury Edition Logic
  */
 
 // --- DATA ---
@@ -12,20 +12,18 @@ const ADVENTURES = [
         groupSize: '8 Riders',
         date: '12 September 2026',
         price: 120,
-        stops: ['Atlas Mountain View', 'Traditional Berber Café', 'Sunset Panorama'],
-        tag: 'Popular',
+        stops: ['Atlas Mountains', 'Berber Café', 'Mountain Sunset'],
         image: 'https://images.unsplash.com/photo-1597212618440-806262de4fe6?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 'adv-2',
-        title: 'Marrakech → Desert Escape',
+        title: 'Marrakech → Agafay Desert Escape',
         duration: '1 Day',
         difficulty: 'Easy',
         groupSize: '12 Riders',
         date: '25 September 2026',
         price: 180,
-        stops: ['Agafay Desert', 'Desert Camp', 'Camel Break Point'],
-        tag: 'Recommended',
+        stops: ['Agafay Desert', 'Desert Camp', 'Sunset Viewpoint'],
         image: 'https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=800'
     },
     {
@@ -36,8 +34,7 @@ const ADVENTURES = [
         groupSize: '6 Riders',
         date: '8 October 2026',
         price: 350,
-        stops: ['Rocky Mountain Trails', 'Hidden Villages', 'High Atlas Peaks'],
-        tag: 'Elite',
+        stops: ['Rocky Trails', 'Hidden Villages', 'High Atlas Peaks'],
         image: 'https://images.unsplash.com/photo-1542662565-7e4b66bae529?auto=format&fit=crop&q=80&w=800'
     }
 ];
@@ -46,30 +43,30 @@ const MOTORCYCLES = [
     {
         id: 'moto-1',
         name: 'CF Moto 450 MT',
-        power: '44 HP',
-        desc: 'Lightweight and nimble, perfect for technical Atlas trails.',
-        image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=800'
+        specs: '449cc Touring',
+        desc: 'Lightweight off-road touring machine.',
+        image: 'https://images.unsplash.com/photo-1539121405283-2bb73027132a?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 'moto-2',
-        name: 'Honda Africa Twin',
-        power: '101 HP',
-        desc: 'The ultimate adventure icon. Power meets legendary reliability.',
-        image: 'https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800'
+        name: 'BMW R1250 GS Adventure',
+        specs: '1254cc Boxer',
+        desc: 'Premium adventure touring icon.',
+        image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 'moto-3',
         name: 'Yamaha Tenere 700',
-        power: '73 HP',
-        desc: 'Rally-bred performance for those who seek the pure desert experience.',
+        specs: '689cc CP2',
+        desc: 'Rally-inspired adventure legend.',
         image: 'https://images.unsplash.com/photo-1614165933024-4903366bc907?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 'moto-4',
-        name: 'BMW R1250 GS Adventure',
-        power: '136 HP',
-        desc: 'Unmatched comfort and technology for long-distance mountain crossing.',
-        image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&q=80&w=800'
+        name: 'Honda Africa Twin',
+        specs: '1084cc Twin',
+        desc: 'Legendary touring adventure master.',
+        image: 'https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&q=80&w=800'
     }
 ];
 
@@ -82,7 +79,6 @@ const advContainer = document.getElementById('adventures-container');
 const bikesContainer = document.getElementById('bikes-container');
 const summaryContainer = document.getElementById('booking-summary');
 const confirmBtn = document.getElementById('confirm-booking');
-const header = document.getElementById('header');
 
 // --- FUNCTIONS ---
 
@@ -92,22 +88,25 @@ const header = document.getElementById('header');
 function renderAdventures() {
     advContainer.innerHTML = ADVENTURES.map(adv => `
         <div class="card adventure-card" data-id="${adv.id}">
-            <div class="card-img-container">
+            <div class="card-image-container">
                 <img src="${adv.image}" alt="${adv.title}" class="card-image">
+                <div class="card-overlay"></div>
             </div>
-            <div class="card-body">
-                <span class="card-tag">${adv.tag}</span>
+            <div class="card-content">
+                <span class="card-date">${adv.date}</span>
                 <h3 class="card-title">${adv.title}</h3>
                 <div class="card-meta">
-                    <span>⏱ ${adv.duration}</span>
-                    <span>🏔 ${adv.difficulty}</span>
+                    <div class="meta-item">⏱ ${adv.duration}</div>
+                    <div class="meta-item">🏔 ${adv.difficulty}</div>
+                    <div class="meta-item">👥 ${adv.groupSize}</div>
+                    <div class="meta-item">📍 ${adv.stops.length} Stops</div>
                 </div>
                 <ul class="card-stops">
                     ${adv.stops.map(stop => `<li>${stop}</li>`).join('')}
                 </ul>
                 <div class="card-footer">
                     <div class="card-price">${adv.price}€</div>
-                    <button class="btn btn-select">Join Experience</button>
+                    <button class="btn btn-primary" style="padding: 0.8rem 2rem;">Join</button>
                 </div>
             </div>
         </div>
@@ -128,16 +127,15 @@ function renderAdventures() {
 function renderMotorcycles() {
     bikesContainer.innerHTML = MOTORCYCLES.map(bike => `
         <div class="card bike-card" data-id="${bike.id}">
-            <div class="card-img-container">
+            <div class="card-image-container">
                 <img src="${bike.image}" alt="${bike.name}" class="card-image">
+                <div class="bike-specs">${bike.specs}</div>
+                <div class="card-overlay"></div>
             </div>
-            <div class="card-body">
-                <span class="card-tag">${bike.power}</span>
-                <h3 class="card-title">${bike.name}</h3>
-                <p class="card-stops" style="border: none; padding: 0; margin-bottom: 2rem;">${bike.desc}</p>
-                <div class="card-footer">
-                    <button class="btn btn-select" style="width: 100%">Select this Machine</button>
-                </div>
+            <div class="card-content">
+                <h3 class="card-title" style="margin-bottom: 0.5rem;">${bike.name}</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">${bike.desc}</p>
+                <button class="btn btn-primary" style="width: 100%">Choose this Motorcycle</button>
             </div>
         </div>
     `).join('');
@@ -152,7 +150,7 @@ function renderMotorcycles() {
 }
 
 /**
- * Toggle visual selection in UI
+ * Toggle visual selection
  */
 function updateSelectionUI(selector, selectedCard) {
     document.querySelectorAll(selector).forEach(c => c.classList.remove('selected'));
@@ -164,30 +162,30 @@ function updateSelectionUI(selector, selectedCard) {
  */
 function updateSummary() {
     if (!selectedAdventure || !selectedMotorcycle) {
-        summaryContainer.innerHTML = `
-            <p class="placeholder-text" style="color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">
-                Select your journey and your fleet to reveal the summary.
-            </p>
-        `;
+        summaryContainer.innerHTML = `<p class="placeholder-text">Select your adventure and your machine to continue.</p>`;
         confirmBtn.disabled = true;
         return;
     }
 
     summaryContainer.innerHTML = `
-        <div class="summary-row">
-            <span class="summary-label">Experience</span>
+        <div class="summary-item">
+            <span class="summary-label">Adventure</span>
             <span class="summary-value">${selectedAdventure.title}</span>
         </div>
-        <div class="summary-row">
-            <span class="summary-label">Departure</span>
+        <div class="summary-item">
+            <span class="summary-label">Departure Date</span>
             <span class="summary-value">${selectedAdventure.date}</span>
         </div>
-        <div class="summary-row">
-            <span class="summary-label">Machine</span>
+        <div class="summary-item">
+            <span class="summary-label">Selected Machine</span>
             <span class="summary-value">${selectedMotorcycle.name}</span>
         </div>
-        <div class="summary-row total-row">
-            <span class="summary-label">Final Investment</span>
+        <div class="summary-item">
+            <span class="summary-label">Group Details</span>
+            <span class="summary-value">${selectedAdventure.groupSize} | ${selectedAdventure.duration}</span>
+        </div>
+        <div class="summary-item total-row">
+            <span class="summary-label">Experience Price</span>
             <span class="total-value">${selectedAdventure.price}€</span>
         </div>
     `;
@@ -195,24 +193,17 @@ function updateSummary() {
     confirmBtn.disabled = false;
 }
 
-// Header Scroll Effect
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
 /**
- * Booking Confirmation
+ * Confirmation
  */
 confirmBtn.addEventListener('click', () => {
-    confirmBtn.innerHTML = "Processing Spot...";
+    confirmBtn.innerHTML = "Processing Reservation...";
+    confirmBtn.style.opacity = "0.7";
     
     setTimeout(() => {
-        alert(`Reservation Confirmed.\n\nJourney: ${selectedAdventure.title}\nMachine: ${selectedMotorcycle.name}\nDate: ${selectedAdventure.date}\n\nPrepare for the Atlas.`);
+        alert(`Reservation Confirmed.\n\nAdventure: ${selectedAdventure.title}\nMachine: ${selectedMotorcycle.name}\nDate: ${selectedAdventure.date}\n\nSee you in the Atlas.`);
         confirmBtn.innerHTML = "Reserve My Spot";
+        confirmBtn.style.opacity = "1";
     }, 1500);
 });
 
@@ -221,19 +212,15 @@ function init() {
     renderAdventures();
     renderMotorcycles();
     
-    // Smooth reveal on scroll
+    // Smooth reveal observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('fade-in');
             }
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-    
     document.querySelectorAll('.section').forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);

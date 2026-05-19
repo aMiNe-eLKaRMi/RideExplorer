@@ -3,69 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RideExplorer | Premium Guided Moto Adventures</title>
+    <title>RideExplorer | Premium Guided Moto Adventures Morocco</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="logo">RideExplorer</a>
-            <ul class="nav-links">
-                <li><a href="#adventures">Experiences</a></li>
-                <li><a href="#motorcycles">Fleet</a></li>
-                <li><a href="#booking">Reserve</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Fullscreen Hero with Video Background -->
+    <section class="hero">
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=231da6517a19937042831c034766ec6d49ecf80a&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <div class="hero-content container">
-                <h1 class="fade-in">RideExplorer</h1>
-                <p class="fade-in delay-1">Join unforgettable guided motorcycle adventures across Morocco.</p>
-                <div class="fade-in delay-2">
-                    <a href="#adventures" class="btn btn-primary">Explore Adventures</a>
+        <header class="header">
+            <nav class="nav container">
+                <a href="#" class="logo">RideExplorer</a>
+                <ul class="nav-links">
+                    <li><a href="#adventures">Adventures</a></li>
+                    <li><a href="#motorcycles">The Fleet</a></li>
+                    <li><a href="#booking">My Spot</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="hero-content container">
+            <h1 class="hero-title fade-in">RideExplorer</h1>
+            <p class="hero-subtitle fade-in delay-1">Join unforgettable guided motorcycle adventures across Morocco.</p>
+            <div class="fade-in delay-2">
+                <a href="#adventures" class="btn btn-primary">Explore Adventures</a>
+            </div>
+
+            <!-- Floating Stats Cards -->
+            <div class="hero-stats fade-in delay-3">
+                <div class="stat-card glass">
+                    <span class="stat-value">500+</span>
+                    <span class="stat-label">Riders</span>
+                </div>
+                <div class="stat-card glass">
+                    <span class="stat-value">25</span>
+                    <span class="stat-label">Adventures</span>
+                </div>
+                <div class="stat-card glass">
+                    <span class="stat-value">4.9</span>
+                    <span class="stat-label">Rating</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <main>
         <!-- Adventures Section -->
         <section id="adventures" class="section">
             <div class="container">
-                <h2 class="section-title fade-in">Select Your Adventure</h2>
+                <h2 class="section-title">Predefined Adventures</h2>
                 <div class="grid grid-adventures" id="adventures-container">
-                    <!-- Dynamic Adventure Cards will be injected here -->
+                    <!-- Dynamic Adventure Cards -->
                 </div>
             </div>
         </section>
 
         <!-- Motorcycles Section -->
-        <section id="motorcycles" class="section">
+        <section id="motorcycles" class="section dark-bg">
             <div class="container">
-                <h2 class="section-title fade-in">Select Your Motorcycle</h2>
+                <h2 class="section-title">The Fleet</h2>
                 <div class="grid grid-bikes" id="bikes-container">
-                    <!-- Dynamic Bike Cards will be injected here -->
+                    <!-- Dynamic Bike Cards -->
                 </div>
             </div>
         </section>
 
         <!-- Booking Summary Section -->
-        <section id="booking" class="section booking">
+        <section id="booking" class="section">
             <div class="container">
-                <div class="booking-card glass fade-in">
-                    <h2 class="section-title">Adventure Summary</h2>
+                <div class="booking-card glass-premium">
+                    <h2 class="section-title">Your Experience Summary</h2>
                     <div id="booking-summary" class="booking-summary">
-                        <p class="placeholder-text">Select an adventure and a motorcycle to secure your spot in the group.</p>
+                        <p class="placeholder-text">Select your adventure and your machine to continue.</p>
                     </div>
-                    <div class="booking-action">
+                    <div class="booking-footer">
                         <button id="confirm-booking" class="btn btn-primary btn-large" disabled>Reserve My Spot</button>
-                        <p class="terms">By clicking, you agree to join a guided group experience.</p>
                     </div>
                 </div>
             </div>
@@ -74,11 +94,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 RideExplorer. Premium Guided Experiences.</p>
-            <div class="footer-links">
-                <span>Investor Demo</span>
-                <span>Terms of Adventure</span>
-            </div>
+            <p>&copy; 2026 RideExplorer. Designed for the bold.</p>
         </div>
     </footer>
 
