@@ -1,459 +1,83 @@
+/* Custom Premium Styles */
+
 :root {
-    --primary: #FF9F1C;
-    --primary-hover: #E88E10;
-    --bg-black: #050505;
-    --bg-dark: #121212;
-    --text-white: #FFFFFF;
-    --text-muted: #A0A0A0;
-    --glass: rgba(255, 255, 255, 0.05);
-    --glass-heavy: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.15);
-    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --desert: #f97316;
+    --matte-black: #0a0a0a;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-html {
-    scroll-behavior: smooth;
+::-webkit-scrollbar-track {
+    background: var(--matte-black);
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-black);
-    color: var(--text-white);
-    line-height: 1.6;
-    overflow-x: hidden;
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2.5rem;
+::-webkit-scrollbar-thumb:hover {
+    background: var(--desert);
 }
 
-.section {
-    padding: 10rem 0;
-    background-color: rgba(5, 5, 5, 0.6); /* Semi-transparent sections */
-}
-
-.dark-bg {
-    background-color: rgba(18, 18, 18, 0.7);
-}
-
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 5rem;
-    text-align: center;
-    letter-spacing: -2px;
-}
-
-/* Header */
-.header {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 2rem 0;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--text-white);
-    text-decoration: none;
-    letter-spacing: -1px;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 3rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-white);
-    font-weight: 400;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: var(--transition);
-    opacity: 0.7;
-}
-
-.nav-links a:hover {
-    opacity: 1;
-    color: var(--primary);
-}
-
-/* Global Video Background */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    overflow: hidden;
-}
-
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.video-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%);
-    z-index: -1;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background: transparent;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    width: 100%;
-}
-
-.hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(4rem, 15vw, 10rem);
-    font-weight: 900;
-    margin-bottom: 1rem;
-    letter-spacing: -5px;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--text-muted);
-    margin-bottom: 3rem;
-    max-width: 800px;
-    margin-inline: auto;
-}
-
-/* Hero Stats */
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 5rem;
-}
-
-.stat-card {
-    padding: 1.5rem 3rem;
-    border-radius: 20px;
-    text-align: center;
-    min-width: 180px;
-}
-
-.stat-value {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--primary);
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 1.2rem 3.5rem;
-    border-radius: 100px;
-    font-weight: 600;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    transition: var(--transition);
-    cursor: pointer;
-    border: none;
-}
-
-.btn-primary {
-    background-color: var(--primary);
-    color: var(--bg-black);
-}
-
-.btn-primary:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(255, 159, 28, 0.3);
-}
-
-.btn-large {
-    width: 100%;
-    font-size: 1.1rem;
-    padding: 1.5rem;
-}
-
-.btn:disabled {
-    background-color: #333;
-    color: #666;
-    cursor: not-allowed;
-    transform: none !important;
-    box-shadow: none !important;
-}
-
-/* Grid Layout */
-.grid {
-    display: grid;
-    gap: 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-}
-
-/* Adventure Cards */
-.card {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    overflow: hidden;
-    transition: var(--transition);
-    cursor: pointer;
-    position: relative;
-}
-
-.card:hover {
-    transform: translateY(-15px);
-    border-color: var(--primary);
-    background: var(--glass-heavy);
-}
-
-.card.selected {
-    border-color: var(--primary);
-    background: rgba(255, 159, 28, 0.1);
-    box-shadow: 0 0 50px rgba(255, 159, 28, 0.2);
-}
-
-.card-image-container {
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.card:hover .card-image {
-    transform: scale(1.1);
-}
-
-.card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, var(--bg-black) 0%, transparent 100%);
-}
-
-.card-content {
-    padding: 2.5rem;
-}
-
-.card-date {
-    font-size: 0.8rem;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.card-meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.card-stops {
-    list-style: none;
-    margin-bottom: 2.5rem;
-}
-
-.card-stops li {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.card-stops li::before {
-    content: "•";
-    color: var(--primary);
-    position: absolute;
-    left: 0;
-}
-
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.card-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 900;
-}
-
-/* Motorcycle Cards */
-.bike-card .card-image-container {
-    height: 350px;
-}
-
-.bike-specs {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    padding: 0.8rem 1.5rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Booking Card */
-.glass-premium {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
-    padding: 5rem;
-    max-width: 1000px;
-    margin-inline: auto;
-}
-
-.booking-summary {
-    margin: 4rem 0;
-}
-
-.summary-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 0;
+/* Navbar Scrolled State */
+#navbar.scrolled {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.summary-label {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-}
-
-.summary-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-}
-
-.total-row {
-    margin-top: 2rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--primary);
-}
-
-.total-value {
-    font-size: 3.5rem;
-    color: var(--primary);
-    font-weight: 900;
-}
-
-/* Animations */
-.fade-in {
+/* Reveal Animations */
+.reveal-up {
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeIn 1.2s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-@keyframes fadeIn {
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+
+/* Radial Gradient Overlay for Hero */
+.bg-radial-gradient {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Card Image Zoom Effect */
+.card-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* Custom Glassmorphism for Stats */
+.glass-stats {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+/* Interactive SVG Map Styling */
+#map-visual svg path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawPath 5s ease forwards;
+}
+
+@keyframes drawPath {
     to {
-        opacity: 1;
-        transform: translateY(0);
+        stroke-dashoffset: 0;
     }
 }
 
-/* Utility */
-.glass {
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    border: 1px solid var(--glass-border);
-}
-
-/* Footer */
-.footer {
-    padding: 5rem 0;
-    text-align: center;
-    border-top: 1px solid var(--glass-border);
-    color: var(--text-muted);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .hero-title { font-size: 6rem; }
-    .grid { grid-template-columns: 1fr; }
-    .glass-premium { padding: 3rem; }
-}
-
-@media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-stats { flex-direction: column; align-items: center; }
-    .hero-title { font-size: 4rem; }
-    .section-title { font-size: 2.5rem; }
+/* Trip Card Storytelling Glow */
+.trip-card:hover {
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.1);
 }
