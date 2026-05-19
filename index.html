@@ -10,52 +10,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Fullscreen Hero with Video Background -->
-    <section class="hero">
-        <div class="video-container">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=231da6517a19937042831c034766ec6d49ecf80a&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
-            </video>
-            <div class="video-overlay"></div>
-        </div>
+    <!-- Global Animated Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=231da6517a19937042831c034766ec6d49ecf80a&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
 
-        <header class="header">
-            <nav class="nav container">
-                <a href="#" class="logo">RideExplorer</a>
-                <ul class="nav-links">
-                    <li><a href="#adventures">Adventures</a></li>
-                    <li><a href="#motorcycles">The Fleet</a></li>
-                    <li><a href="#booking">My Spot</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <div class="hero-content container">
-            <h1 class="hero-title fade-in">RideExplorer</h1>
-            <p class="hero-subtitle fade-in delay-1">Join unforgettable guided motorcycle adventures across Morocco.</p>
-            <div class="fade-in delay-2">
-                <a href="#adventures" class="btn btn-primary">Explore Adventures</a>
-            </div>
-
-            <!-- Floating Stats Cards -->
-            <div class="hero-stats fade-in delay-3">
-                <div class="stat-card glass">
-                    <span class="stat-value">500+</span>
-                    <span class="stat-label">Riders</span>
-                </div>
-                <div class="stat-card glass">
-                    <span class="stat-value">25</span>
-                    <span class="stat-label">Adventures</span>
-                </div>
-                <div class="stat-card glass">
-                    <span class="stat-value">4.9</span>
-                    <span class="stat-label">Rating</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">RideExplorer</a>
+            <ul class="nav-links">
+                <li><a href="#adventures">Adventures</a></li>
+                <li><a href="#motorcycles">The Fleet</a></li>
+                <li><a href="#booking">My Spot</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
+        <!-- Fullscreen Hero -->
+        <section class="hero">
+            <div class="hero-content container">
+                <h1 class="hero-title fade-in">RideExplorer</h1>
+                <p class="hero-subtitle fade-in delay-1">Join unforgettable guided motorcycle adventures across Morocco.</p>
+                <div class="fade-in delay-2">
+                    <a href="#adventures" class="btn btn-primary">Explore Adventures</a>
+                </div>
+
+                <!-- Floating Stats Cards -->
+                <div class="hero-stats fade-in delay-3">
+                    <div class="stat-card glass">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Riders</span>
+                    </div>
+                    <div class="stat-card glass">
+                        <span class="stat-value">25</span>
+                        <span class="stat-label">Adventures</span>
+                    </div>
+                    <div class="stat-card glass">
+                        <span class="stat-value">4.9</span>
+                        <span class="stat-label">Rating</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Adventures Section -->
         <section id="adventures" class="section">
             <div class="container">
