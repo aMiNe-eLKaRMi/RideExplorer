@@ -60,6 +60,14 @@ const MOTORCYCLES = [
         specs: { cc: '689cc', hp: '73hp', weight: '204kg' },
         price: '+25€/day',
         image: 'https://i.pinimg.com/736x/46/de/de/46dede9122cc2f1fd55bbc0d5cd38aea.jpg'
+    },
+    {
+    id: 'moto-4',
+    name: 'Africa Twin',
+    type: 'Touring',
+    specs: {cc: '689 cc',hp: '73 hp',weight: '204 kg'},
+    price: '25€/day',
+    image: 'https://apiv2.autonews.ma/wp-content/uploads/2024/10/honda-africa-twin-autonews-223.jpg'
     }
 ];
 
