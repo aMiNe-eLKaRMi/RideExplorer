@@ -65,7 +65,7 @@ const MOTORCYCLES = [
     id: 'moto-4',
     name: 'Africa Twin',
     type: 'Touring',
-    specs: {cc: '689 cc',hp: '73 hp',weight: '204 kg'},
+    specs: {cc: '1084 cc',hp: '102 hp',weight: '226 kg'},
     price: '25€/day',
     image: 'https://apiv2.autonews.ma/wp-content/uploads/2024/10/honda-africa-twin-autonews-223.jpg'
     }
@@ -89,29 +89,29 @@ const confirmBtn = document.getElementById('confirm-booking');
  */
 function renderAdventures() {
     advContainer.innerHTML = ADVENTURES.map(adv => `
-        <div class="group relative bg-white/5 border border-white/10 rounded-[40px] overflow-hidden transition-all duration-500 hover:border-desert hover:-translate-y-2 trip-card cursor-pointer" data-id="${adv.id}">
-            <div class="h-[400px] overflow-hidden relative">
+        <div class="group relative bg-white/5 border border-white/10 rounded-[30px] md:rounded-[40px] overflow-hidden transition-all duration-500 hover:border-desert hover:-translate-y-2 trip-card cursor-pointer" data-id="${adv.id}">
+            <div class="h-[300px] md:h-[400px] overflow-hidden relative">
                 <img src="${adv.image}" alt="${adv.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                 <div class="absolute top-6 right-6 bg-desert text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full">
                     ${adv.difficulty}
                 </div>
             </div>
-            <div class="p-10 relative">
+            <div class="p-8 md:p-10 relative">
                 <div class="flex gap-2 mb-4">
                     ${adv.tags.map(tag => `<span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">${tag}</span>`).join('<span class="text-gray-700">|</span>')}
                 </div>
-                <h3 class="text-3xl font-black mb-2">${adv.title}</h3>
-                <p class="text-gray-400 mb-8 font-light">${adv.subtitle}</p>
+                <h3 class="text-2xl md:text-3xl font-black mb-2">${adv.title}</h3>
+                <p class="text-gray-400 mb-6 md:mb-8 text-sm md:text-base font-light">${adv.subtitle}</p>
                 <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-2 text-desert font-bold">
+                    <div class="flex items-center gap-2 text-desert font-bold text-sm md:text-base">
                         <i data-lucide="clock" class="w-4 h-4"></i>
                         ${adv.duration}
                     </div>
-                    <div class="text-2xl font-black">${adv.price}€</div>
+                    <div class="text-xl md:text-2xl font-black">${adv.price}€</div>
                 </div>
             </div>
-            <div class="absolute inset-0 border-2 border-desert opacity-0 group-[.selected]:opacity-100 transition-opacity rounded-[40px] pointer-events-none"></div>
+            <div class="absolute inset-0 border-2 border-desert opacity-0 group-[.selected]:opacity-100 transition-opacity rounded-[30px] md:rounded-[40px] pointer-events-none"></div>
         </div>
     `).join('');
 
@@ -134,35 +134,35 @@ function renderMotorcycles(filter = 'All Machines') {
     const filtered = filter === 'All Machines' ? MOTORCYCLES : MOTORCYCLES.filter(m => m.type === filter);
     
     bikesContainer.innerHTML = filtered.map(bike => `
-        <div class="group bg-white/5 border border-white/10 rounded-[40px] p-8 transition-all duration-500 hover:bg-white/10 bike-card cursor-pointer relative" data-id="${bike.id}">
-            <div class="mb-8 overflow-hidden rounded-[30px] h-64 bg-black/40">
+        <div class="group bg-white/5 border border-white/10 rounded-[30px] md:rounded-[40px] p-6 md:p-8 transition-all duration-500 hover:bg-white/10 bike-card cursor-pointer relative" data-id="${bike.id}">
+            <div class="mb-6 md:mb-8 overflow-hidden rounded-[20px] md:rounded-[30px] h-48 md:h-64 bg-black/40">
                 <img src="${bike.image}" alt="${bike.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
             </div>
-            <div class="flex justify-between items-start mb-6">
+            <div class="flex justify-between items-start mb-4 md:mb-6">
                 <div>
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-desert mb-2 block">${bike.type}</span>
-                    <h3 class="text-2xl font-black">${bike.name}</h3>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-desert mb-1 md:mb-2 block">${bike.type}</span>
+                    <h3 class="text-xl md:text-2xl font-black">${bike.name}</h3>
                 </div>
                 <div class="text-right">
-                    <span class="text-xs text-gray-500 block uppercase">Price</span>
-                    <span class="font-bold">${bike.price}</span>
+                    <span class="text-[10px] text-gray-500 block uppercase">Price</span>
+                    <span class="font-bold text-sm md:text-base">${bike.price}</span>
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-4 py-6 border-t border-white/5">
+            <div class="grid grid-cols-3 gap-2 md:gap-4 py-4 md:py-6 border-t border-white/5">
                 <div class="text-center">
-                    <span class="block text-[10px] text-gray-500 uppercase mb-1">Engine</span>
-                    <span class="font-bold text-sm">${bike.specs.cc}</span>
+                    <span class="block text-[8px] md:text-[10px] text-gray-500 uppercase mb-1">Engine</span>
+                    <span class="font-bold text-xs md:text-sm">${bike.specs.cc}</span>
                 </div>
                 <div class="text-center border-x border-white/5">
-                    <span class="block text-[10px] text-gray-500 uppercase mb-1">Power</span>
-                    <span class="font-bold text-sm">${bike.specs.hp}</span>
+                    <span class="block text-[8px] md:text-[10px] text-gray-500 uppercase mb-1">Power</span>
+                    <span class="font-bold text-xs md:text-sm">${bike.specs.hp}</span>
                 </div>
                 <div class="text-center">
-                    <span class="block text-[10px] text-gray-500 uppercase mb-1">Weight</span>
-                    <span class="font-bold text-sm">${bike.specs.weight}</span>
+                    <span class="block text-[8px] md:text-[10px] text-gray-500 uppercase mb-1">Weight</span>
+                    <span class="font-bold text-xs md:text-sm">${bike.specs.weight}</span>
                 </div>
             </div>
-            <div class="absolute inset-0 border-2 border-desert opacity-0 group-[.selected]:opacity-100 transition-opacity rounded-[40px] pointer-events-none"></div>
+            <div class="absolute inset-0 border-2 border-desert opacity-0 group-[.selected]:opacity-100 transition-opacity rounded-[30px] md:rounded-[40px] pointer-events-none"></div>
         </div>
     `).join('');
 
@@ -287,6 +287,27 @@ function init() {
     
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
+
+    // Mobile Menu Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    const toggleMenu = () => {
+        mobileMenu.classList.toggle('translate-x-full');
+        document.body.classList.toggle('overflow-hidden');
+    };
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    closeMenuBtn.addEventListener('click', toggleMenu);
+    
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.classList.remove('overflow-hidden');
+        });
+    });
 
     confirmBtn.addEventListener('click', () => {
         confirmBtn.innerHTML = '<span class="animate-pulse">PROCESSING...</span>';

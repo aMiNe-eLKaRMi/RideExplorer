@@ -48,9 +48,20 @@
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-white">
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors">
                 <i data-lucide="menu"></i>
             </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-matte-black z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-heading font-bold translate-x-full transition-transform duration-500 md:hidden">
+            <button id="close-menu-btn" class="absolute top-10 right-10 text-white">
+                <i data-lucide="x" class="w-10 h-10"></i>
+            </button>
+            <a href="#trips" class="hover:text-desert transition-colors">The Trips</a>
+            <a href="#fleet" class="hover:text-desert transition-colors">The Fleet</a>
+            <a href="#why-us" class="hover:text-desert transition-colors">Experience</a>
+            <a href="#booking" class="bg-desert text-white px-10 py-4 rounded-full hover:bg-orange-600 transition-all">Reserve Now</a>
         </div>
     </nav>
 
@@ -67,10 +78,10 @@
         </div>
 
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h1 class="font-heading text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-none reveal-up">
+            <h1 class="font-heading text-5xl md:text-9xl font-black mb-6 tracking-tighter leading-none reveal-up">
                 UNLEASH THE <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-desert to-orange-400">ADVENTURE.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed reveal-up delay-100">
+            <p class="text-lg md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed reveal-up delay-100">
                 Premium guided motorcycle expeditions across the Atlas Mountains and the Sahara Desert.
             </p>
             <div class="flex flex-col md:flex-row items-center justify-center gap-6 reveal-up delay-200">
@@ -91,62 +102,62 @@
     </section>
 
     <!-- Stats Section (Glass) -->
-    <section class="relative z-20 -mt-20 px-6">
+    <section class="relative z-20 -mt-20 px-4 md:px-6">
         <div class="container mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 bg-white/5 backdrop-blur-2xl border border-white/10 p-10 md:p-16 rounded-[40px] shadow-2xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 bg-white/5 backdrop-blur-2xl border border-white/10 p-6 md:p-16 rounded-[30px] md:rounded-[40px] shadow-2xl">
                 <div class="text-center">
-                    <span class="block text-4xl md:text-6xl font-black text-desert mb-2">500+</span>
-                    <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">Riders Guided</span>
+                    <span class="block text-3xl md:text-6xl font-black text-desert mb-1 md:mb-2">500+</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 font-bold">Riders Guided</span>
                 </div>
                 <div class="text-center">
-                    <span class="block text-4xl md:text-6xl font-black text-desert mb-2">25</span>
-                    <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">Premium Routes</span>
+                    <span class="block text-3xl md:text-6xl font-black text-desert mb-1 md:mb-2">25</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 font-bold">Premium Routes</span>
                 </div>
                 <div class="text-center">
-                    <span class="block text-4xl md:text-6xl font-black text-desert mb-2">4.9</span>
-                    <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">Safety Rating</span>
+                    <span class="block text-3xl md:text-6xl font-black text-desert mb-1 md:mb-2">4.9</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 font-bold">Safety Rating</span>
                 </div>
                 <div class="text-center">
-                    <span class="block text-4xl md:text-6xl font-black text-desert mb-2">100%</span>
-                    <span class="text-xs uppercase tracking-widest text-gray-400 font-bold">Adrenaline</span>
+                    <span class="block text-3xl md:text-6xl font-black text-desert mb-1 md:mb-2">100%</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 font-bold">Adrenaline</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Interactive Trips Storytelling -->
-    <section id="trips" class="py-32 bg-matte-black overflow-hidden">
+    <section id="trips" class="py-20 md:py-32 bg-matte-black overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
                 <div class="max-w-2xl">
-                    <h2 class="font-heading text-5xl md:text-7xl font-black mb-8 leading-tight">THE MOROCCO <br> <span class="text-desert">EXPEDITION.</span></h2>
-                    <p class="text-gray-400 text-lg leading-relaxed">From the bustling souks of Marrakech to the silent dunes of Merzouga. We've mapped the most emotional routes in the Kingdom.</p>
+                    <h2 class="font-heading text-4xl md:text-7xl font-black mb-6 md:mb-8 leading-tight">THE MOROCCO <br> <span class="text-desert">EXPEDITION.</span></h2>
+                    <p class="text-gray-400 text-base md:text-lg leading-relaxed">From the bustling souks of Marrakech to the silent dunes of Merzouga. We've mapped the most emotional routes in the Kingdom.</p>
                 </div>
                 <div class="flex gap-4">
-                    <button class="p-4 rounded-full border border-white/10 hover:border-desert hover:text-desert transition-all">
+                    <button class="p-3 md:p-4 rounded-full border border-white/10 hover:border-desert hover:text-desert transition-all">
                         <i data-lucide="arrow-left"></i>
                     </button>
-                    <button class="p-4 rounded-full bg-white text-matte-black hover:bg-desert hover:text-white transition-all">
+                    <button class="p-3 md:p-4 rounded-full bg-white text-matte-black hover:bg-desert hover:text-white transition-all">
                         <i data-lucide="arrow-right"></i>
                     </button>
                 </div>
             </div>
 
             <!-- Visual Map Concept (SVG Placeholder) -->
-            <div id="map-visual" class="relative w-full h-[500px] mb-20 bg-white/5 rounded-[40px] border border-white/10 overflow-hidden group">
+            <div id="map-visual" class="relative w-full h-[300px] md:h-[500px] mb-12 md:mb-20 bg-white/5 rounded-[30px] md:rounded-[40px] border border-white/10 overflow-hidden group">
                 <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
-                    <i data-lucide="map" class="w-64 h-64"></i>
+                    <i data-lucide="map" class="w-32 h-32 md:w-64 md:h-64"></i>
                 </div>
                 <!-- Route Path Concept -->
-                <div class="absolute inset-0 p-12 flex items-center justify-center">
+                <div class="absolute inset-0 p-6 md:p-12 flex items-center justify-center">
                     <div class="text-center max-w-md">
-                        <div class="flex items-center justify-center mb-6">
-                            <span class="w-12 h-[2px] bg-desert"></span>
+                        <div class="flex items-center justify-center mb-4 md:mb-6">
+                            <span class="w-8 md:w-12 h-[2px] bg-desert"></span>
                             <i data-lucide="map-pin" class="text-desert mx-4"></i>
-                            <span class="w-12 h-[2px] bg-desert"></span>
+                            <span class="w-8 md:w-12 h-[2px] bg-desert"></span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Interactive Route Map</h3>
-                        <p class="text-gray-500 italic">Visualizing: Marrakech → Atlas → Agafay → Sahara</p>
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 md:mb-4">Interactive Route Map</h3>
+                        <p class="text-gray-500 text-sm md:text-base italic">Visualizing: Marrakech → Atlas → Agafay → Sahara</p>
                     </div>
                 </div>
             </div>
@@ -158,15 +169,15 @@
     </section>
 
     <!-- The Fleet & Filters -->
-    <section id="fleet" class="py-32 bg-zinc-950">
+    <section id="fleet" class="py-20 md:py-32 bg-zinc-950">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="font-heading text-5xl md:text-7xl font-black mb-8">THE <span class="text-desert">FLEET.</span></h2>
-                <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-tighter">
-                    <button class="filter-btn active px-8 py-4 rounded-full bg-desert text-white shadow-xl shadow-desert/20">All Machines</button>
-                    <button class="filter-btn px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">Touring</button>
-                    <button class="filter-btn px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">Enduro</button>
-                    <button class="filter-btn px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">Premium</button>
+            <div class="text-center mb-12 md:mb-20">
+                <h2 class="font-heading text-4xl md:text-7xl font-black mb-8 md:mb-8">THE <span class="text-desert">FLEET.</span></h2>
+                <div class="flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-3 md:gap-4 text-[10px] md:text-xs font-bold uppercase tracking-tighter overflow-x-auto pb-4 md:pb-0 no-scrollbar">
+                    <button class="filter-btn active whitespace-nowrap px-6 md:px-8 py-3 md:py-4 rounded-full bg-desert text-white shadow-xl shadow-desert/20">All Machines</button>
+                    <button class="filter-btn whitespace-nowrap px-6 md:px-8 py-3 md:py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">Touring</button>
+                    <button class="filter-btn whitespace-nowrap px-6 md:px-8 py-3 md:py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">Enduro</button>
+                    <button class="filter-btn whitespace-nowrap px-6 md:px-8 py-3 md:py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all">Premium</button>
                 </div>
             </div>
 
@@ -177,46 +188,46 @@
     </section>
 
     <!-- Why Us (Experience) -->
-    <section id="why-us" class="py-32 bg-matte-black">
+    <section id="why-us" class="py-20 md:py-32 bg-matte-black">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
                 <div>
-                    <h2 class="font-heading text-5xl md:text-6xl font-black mb-10 leading-tight">WHY <br> RIDEEXPLORER?</h2>
-                    <div class="space-y-12">
-                        <div class="flex gap-6">
-                            <div class="w-16 h-16 shrink-0 bg-desert/10 rounded-2xl flex items-center justify-center text-desert">
-                                <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    <h2 class="font-heading text-4xl md:text-6xl font-black mb-8 md:mb-10 leading-tight">WHY <br> RIDEEXPLORER?</h2>
+                    <div class="space-y-8 md:space-y-12">
+                        <div class="flex gap-4 md:gap-6">
+                            <div class="w-12 h-12 md:w-16 md:h-16 shrink-0 bg-desert/10 rounded-xl md:rounded-2xl flex items-center justify-center text-desert">
+                                <i data-lucide="shield-check" class="w-6 h-6 md:w-8 md:h-8"></i>
                             </div>
                             <div>
-                                <h4 class="text-xl font-bold mb-2">Premium Maintenance</h4>
-                                <p class="text-gray-400">Our fleet is serviced after every single ride by BMW & Yamaha certified mechanics.</p>
+                                <h4 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Premium Maintenance</h4>
+                                <p class="text-gray-400 text-sm md:text-base">Our fleet is serviced after every single ride by BMW & Yamaha certified mechanics.</p>
                             </div>
                         </div>
-                        <div class="flex gap-6">
-                            <div class="w-16 h-16 shrink-0 bg-desert/10 rounded-2xl flex items-center justify-center text-desert">
-                                <i data-lucide="users" class="w-8 h-8"></i>
+                        <div class="flex gap-4 md:gap-6">
+                            <div class="w-12 h-12 md:w-16 md:h-16 shrink-0 bg-desert/10 rounded-xl md:rounded-2xl flex items-center justify-center text-desert">
+                                <i data-lucide="users" class="w-6 h-6 md:w-8 md:h-8"></i>
                             </div>
                             <div>
-                                <h4 class="text-xl font-bold mb-2">Expert Local Guides</h4>
-                                <p class="text-gray-400">Riders who know every hidden trail and the best tea spots in the High Atlas.</p>
+                                <h4 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Expert Local Guides</h4>
+                                <p class="text-gray-400 text-sm md:text-base">Riders who know every hidden trail and the best tea spots in the High Atlas.</p>
                             </div>
                         </div>
-                        <div class="flex gap-6">
-                            <div class="w-16 h-16 shrink-0 bg-desert/10 rounded-2xl flex items-center justify-center text-desert">
-                                <i data-lucide="package" class="w-8 h-8"></i>
+                        <div class="flex gap-4 md:gap-6">
+                            <div class="w-12 h-12 md:w-16 md:h-16 shrink-0 bg-desert/10 rounded-xl md:rounded-2xl flex items-center justify-center text-desert">
+                                <i data-lucide="package" class="w-6 h-6 md:w-8 md:h-8"></i>
                             </div>
                             <div>
-                                <h4 class="text-xl font-bold mb-2">Full Gear Support</h4>
-                                <p class="text-gray-400">We provide high-end helmets, jackets, and protection if you don't bring your own.</p>
+                                <h4 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Full Gear Support</h4>
+                                <p class="text-gray-400 text-sm md:text-base">We provide high-end helmets, jackets, and protection if you don't bring your own.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1200" alt="Moto Morocco" class="rounded-[40px] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
-                    <div class="absolute -bottom-10 -left-10 bg-desert p-10 rounded-[30px] hidden md:block">
-                        <span class="block text-5xl font-black text-white">10+</span>
-                        <span class="text-xs font-bold uppercase tracking-widest text-white/80">Years of Trails</span>
+                <div class="relative mt-10 lg:mt-0">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=1200" alt="Moto Morocco" class="rounded-[30px] md:rounded-[40px] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+                    <div class="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 bg-desert p-6 md:p-10 rounded-[20px] md:rounded-[30px] shadow-xl">
+                        <span class="block text-3xl md:text-5xl font-black text-white">10+</span>
+                        <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white/80">Years of Trails</span>
                     </div>
                 </div>
             </div>
@@ -224,43 +235,43 @@
     </section>
 
     <!-- Booking Mini Dashboard -->
-    <section id="booking" class="py-32 bg-zinc-950">
-        <div class="container mx-auto px-6">
+    <section id="booking" class="py-20 md:py-32 bg-zinc-950">
+        <div class="container mx-auto px-4 md:px-6">
             <div class="max-w-5xl mx-auto">
-                <div class="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[60px] overflow-hidden shadow-2xl">
+                <div class="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl">
                     <div class="grid grid-cols-1 lg:grid-cols-2">
-                        <div class="p-12 md:p-20 border-b lg:border-b-0 lg:border-r border-white/10">
-                            <h2 class="font-heading text-4xl font-black mb-8">RESERVE <br> YOUR SPOT.</h2>
-                            <p class="text-gray-400 mb-10">Select your adventure and your machine. Our team will contact you within 24 hours to finalize details.</p>
-                            <div id="booking-summary" class="space-y-6">
-                                <p class="text-gray-500 italic flex items-center gap-3">
+                        <div class="p-8 md:p-20 border-b lg:border-b-0 lg:border-r border-white/10">
+                            <h2 class="font-heading text-3xl md:text-4xl font-black mb-6 md:mb-8">RESERVE <br> YOUR SPOT.</h2>
+                            <p class="text-gray-400 text-sm md:text-base mb-8 md:mb-10">Select your adventure and your machine. Our team will contact you within 24 hours to finalize details.</p>
+                            <div id="booking-summary" class="space-y-4 md:space-y-6">
+                                <p class="text-gray-500 text-sm italic flex items-center gap-3">
                                     <i data-lucide="info" class="w-5 h-5"></i>
                                     Waiting for your selection...
                                 </p>
                             </div>
                         </div>
-                        <div class="p-12 md:p-20 bg-white/2 flex flex-col justify-between">
-                            <div class="space-y-8">
+                        <div class="p-8 md:p-20 bg-white/2 flex flex-col justify-between">
+                            <div class="space-y-6 md:space-y-8">
                                 <div class="flex justify-between items-end">
-                                    <span class="text-gray-400 font-bold uppercase tracking-widest text-xs">Total Estimate</span>
-                                    <span id="total-price" class="text-6xl font-black text-desert">0€</span>
+                                    <span class="text-gray-400 font-bold uppercase tracking-widest text-[10px] md:text-xs">Total Estimate</span>
+                                    <span id="total-price" class="text-4xl md:text-6xl font-black text-desert">0€</span>
                                 </div>
-                                <div class="space-y-4">
-                                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                                <div class="space-y-3 md:space-y-4">
+                                    <div class="flex items-center gap-3 text-xs md:text-sm text-gray-400">
                                         <i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i>
                                         Full Insurance Included
                                     </div>
-                                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                                    <div class="flex items-center gap-3 text-xs md:text-sm text-gray-400">
                                         <i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i>
                                         Professional Guide
                                     </div>
-                                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                                    <div class="flex items-center gap-3 text-xs md:text-sm text-gray-400">
                                         <i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i>
                                         Support Vehicle
                                     </div>
                                 </div>
                             </div>
-                            <button id="confirm-booking" disabled class="mt-12 w-full py-6 rounded-2xl bg-desert text-white font-black text-xl hover:bg-orange-600 transition-all disabled:opacity-20 disabled:cursor-not-allowed shadow-xl shadow-desert/20">
+                            <button id="confirm-booking" disabled class="mt-8 md:mt-12 w-full py-4 md:py-6 rounded-xl md:rounded-2xl bg-desert text-white font-black text-lg md:text-xl hover:bg-orange-600 transition-all disabled:opacity-20 disabled:cursor-not-allowed shadow-xl shadow-desert/20">
                                 CONFIRM RESERVATION
                             </button>
                         </div>
@@ -271,58 +282,58 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-32 bg-matte-black">
+    <section class="py-20 md:py-32 bg-matte-black">
         <div class="container mx-auto px-6">
-            <h2 class="font-heading text-5xl font-black text-center mb-20">WHAT RIDERS <span class="text-desert">SAY.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-desert/30 transition-all">
-                    <div class="flex gap-1 text-desert mb-6">
+            <h2 class="font-heading text-4xl md:text-5xl font-black text-center mb-12 md:mb-20">WHAT RIDERS <span class="text-desert">SAY.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="p-8 md:p-10 bg-white/5 border border-white/10 rounded-[30px] md:rounded-[40px] hover:border-desert/30 transition-all">
+                    <div class="flex gap-1 text-desert mb-4 md:mb-6">
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                     </div>
-                    <p class="text-gray-300 italic mb-8">"The Atlas trip was life-changing. The T700 was in perfect condition and the guides knew trails I didn't even see on the map."</p>
+                    <p class="text-gray-300 text-sm md:text-base italic mb-6 md:mb-8">"The Atlas trip was life-changing. The T700 was in perfect condition and the guides knew trails I didn't even see on the map."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-800 rounded-full"></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-800 rounded-full"></div>
                         <div>
-                            <span class="block font-bold">Marc D.</span>
-                            <span class="text-xs text-gray-500 uppercase">France</span>
+                            <span class="block font-bold text-sm md:text-base">Marc D.</span>
+                            <span class="text-[10px] text-gray-500 uppercase">France</span>
                         </div>
                     </div>
                 </div>
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-desert/30 transition-all">
-                    <div class="flex gap-1 text-desert mb-6">
+                <div class="p-8 md:p-10 bg-white/5 border border-white/10 rounded-[30px] md:rounded-[40px] hover:border-desert/30 transition-all">
+                    <div class="flex gap-1 text-desert mb-4 md:mb-6">
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                     </div>
-                    <p class="text-gray-300 italic mb-8">"Riding the dunes at sunset is something I'll never forget. RideExplorer handled everything, from gear to premium desert camps."</p>
+                    <p class="text-gray-300 text-sm md:text-base italic mb-6 md:mb-8">"Riding the dunes at sunset is something I'll never forget. RideExplorer handled everything, from gear to premium desert camps."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-800 rounded-full"></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-800 rounded-full"></div>
                         <div>
-                            <span class="block font-bold">Sarah L.</span>
-                            <span class="text-xs text-gray-500 uppercase">Germany</span>
+                            <span class="block font-bold text-sm md:text-base">Sarah L.</span>
+                            <span class="text-[10px] text-gray-500 uppercase">Germany</span>
                         </div>
                     </div>
                 </div>
-                <div class="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-desert/30 transition-all">
-                    <div class="flex gap-1 text-desert mb-6">
+                <div class="p-8 md:p-10 bg-white/5 border border-white/10 rounded-[30px] md:rounded-[40px] hover:border-desert/30 transition-all">
+                    <div class="flex gap-1 text-desert mb-4 md:mb-6">
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-desert"></i>
                     </div>
-                    <p class="text-gray-300 italic mb-8">"Premium bikes, premium service. If you want to ride Morocco without any stress, this is the only way to do it."</p>
+                    <p class="text-gray-300 text-sm md:text-base italic mb-6 md:mb-8">"Premium bikes, premium service. If you want to ride Morocco without any stress, this is the only way to do it."</p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-800 rounded-full"></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-gray-800 rounded-full"></div>
                         <div>
-                            <span class="block font-bold">James W.</span>
-                            <span class="text-xs text-gray-500 uppercase">UK</span>
+                            <span class="block font-bold text-sm md:text-base">James W.</span>
+                            <span class="text-[10px] text-gray-500 uppercase">UK</span>
                         </div>
                     </div>
                 </div>

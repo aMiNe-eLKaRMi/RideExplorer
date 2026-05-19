@@ -81,3 +81,12 @@
 .trip-card:hover {
     box-shadow: 0 0 40px rgba(249, 115, 22, 0.1);
 }
+
+/* Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
